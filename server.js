@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 
 const PORT = 3000;
 const app = express();
@@ -16,9 +17,9 @@ reservations = [
 ];
 
 
-app.get('/', (req, res) => res.send('Welcome!'));
-app.get('/reservations', (req, res) => res.send('Look at the reservations!'));
-app.get('/reserve', (req, res) => res.send('Make reservation!'));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'html', 'home.html')));
+app.get('/reservations', (req, res) => res.sendFile(path.join(__dirname, 'html', 'reservations.html')));
+app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, 'html', 'tables.html')));
 
 app.get('/api/getreservations', (req, res) => res.json(reservations));
 app.post('/api/putreservation', (req, res) => {
