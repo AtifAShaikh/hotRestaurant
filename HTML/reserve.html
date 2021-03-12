@@ -28,7 +28,7 @@
         </div>
 
         <div class="container">
-            <form>
+            <form class="mb-3">
                 <div class="form-group">
                     <label for="Name">Name</label>
                     <input
@@ -67,6 +67,14 @@
                 </div> -->
                 <input class="btn btn-primary" type="submit" value="Submit" id="submitButton">
             </form>
+
+            <div class="alert alert-success" role="alert" style="display: none;">
+                Your reservation has been made!
+            </div>
+
+            <div class="alert alert-warning" role="alert" style="display: none;">
+                You have been put on the waitlist.
+            </div>
         </div>
 
         <script
@@ -102,6 +110,14 @@
                 .then((response)=>response.json())
                 .then((data)=>{
                     console.log(data);
+                    let status = data.status;
+                    document.querySelector('.alert-success').style.display = "none";
+                    document.querySelector('.alert-warning').style.display = "none";
+                    if(status == "confirmed"){
+                        document.querySelector('.alert-success').style.display = "block";
+                    } else if (status == "waitlist" ) {
+                        document.querySelector('.alert-warning').style.display = " block";
+                    }
                 });
             })
         </script>
