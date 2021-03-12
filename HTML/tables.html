@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
 
 </head>
 <body>
@@ -30,6 +36,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">Current Reservations</h4>
+            <ol id="reservationList"></ol>
           </div>
           <section class="panel-body" id="tableSection">
             
@@ -39,6 +46,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">Waiting List</h4>
+            <ol id="waitList"></ol>
 					</div>
 					<section class="panel-body" id="waitlistSection">
             
@@ -59,5 +67,38 @@
 	</div>
 
  <!-- <script src= "/server.js"></script>    -->
+  <script>
+
+    var reservationData;
+    const reservationList = document.querySelector('#reservationList');
+    const waitList = document.querySelector('#waitList');
+
+    fetch(`api/getreservations`, {
+      method: 'GET',
+      headers: {
+            'Content-Type': 'application/json',
+          },
+    })
+    .then((response)=>response.json())
+    .then((data)=>{
+      console.log(data);
+      reservationData = data;
+      
+      for(var i = 0; i<reservationData.length; i++){
+      var newListItem = document.createElement('li');
+      newListItem.innerHTML = reservationData[i].name;
+      if(i < 5){
+        //add to reservation list
+        reservationList.append(newListItem);
+      } else {
+        //add to wait list
+        waitList.append(newListItem);
+      }
+    }
+    });
+
+    
+
+  </script>
 </body>
 </html>
