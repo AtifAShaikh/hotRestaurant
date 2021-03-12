@@ -18,7 +18,7 @@ reservations = [
 
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'html', 'home.html')));
-app.get('/reservations', (req, res) => res.sendFile(path.join(__dirname, 'html', 'tables.html')));
+app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'html', 'tables.html')));
 app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, 'html', 'reserve.html')));
 
 app.get('/api/getreservations', (req, res) => res.json(reservations));
