@@ -1,0 +1,47 @@
+* {
+    background:url(/images/hot.png);
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-attachment: fixed;
+    clear: both;
+    color: white;
+    font-family: 'Roboto', sans-serif;  
+}
+
+h1 {
+    padding: 50px;
+    text-align: center;
+    font-size: 50px;
+    font-weight:bolder;
+    border: 1px  white;
+
+
+  }
+  
+  h3 {
+    text-align: center;
+    border: 1px  white;
+    font-size:larger;
+
+  }
+  
+  h2 {
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px  white;
+
+  }
+
+.buttons {
+    color: white;
+   
+
+    
+}
+
+
+
+
+
+
+
