@@ -8,6 +8,16 @@
     font-family: 'Roboto', sans-serif;  
 } */
 
+body{
+  background: url("./hot.png");
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-attachment: fixed;
+  clear: both;
+  color: white;
+  font-family: 'Roboto', sans-serif;  
+}
+
 h1 {
     padding: 50px;
     text-align: center;
