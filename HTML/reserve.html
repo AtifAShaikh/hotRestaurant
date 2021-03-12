@@ -34,17 +34,17 @@
                     <input
                         type="text"
                         class="form-control"
-                        id="formGroupExampleInput"
-                        placeholder="Example input"
+                        id="nameInput"
+                        placeholder=""
                     />
                 </div>
                 <div class="form-group">
-                    <label for="number">Number</label>
+                    <label for="number">Phone</label>
                     <input
                         type="text"
                         class="form-control"
-                        id="formGroupExampleInput2"
-                        placeholder="Another input"
+                        id="phoneInput"
+                        placeholder=""
                     />
                 </div>
                 <div class="form-group">
@@ -52,11 +52,11 @@
                     <input
                         type="text"
                         class="form-control"
-                        id="formGroupExampleInput"
-                        placeholder="Example input"
+                        id="emailInput"
+                        placeholder=""
                     />
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="UniqueId">Unique ID</label>
                     <input
                         type="text"
@@ -64,8 +64,8 @@
                         id="formGroupExampleInput2"
                         placeholder="Another input"
                     />
-                </div>
-                <input class="btn btn-primary" type="submit" value="Submit">
+                </div> -->
+                <input class="btn btn-primary" type="submit" value="Submit" id="submitButton">
             </form>
         </div>
 
@@ -84,5 +84,26 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"
         ></script>
+        <script>
+            document.querySelector('#submitButton').addEventListener('click', (e)=>{
+                e.preventDefault();
+                let objectToPush = {
+                    name: document.querySelector('#nameInput').value,
+                    email: document.querySelector('#phoneInput').value,
+                    phone: document.querySelector('#emailInput').value
+                }
+                console.log(objectToPush);
+
+                fetch(`api/putreservation`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(objectToPush)
+                })
+                .then((response)=>response.json())
+                .then((data)=>{
+                    console.log(data);
+                });
+            })
+        </script>
     </body>
 </html>
