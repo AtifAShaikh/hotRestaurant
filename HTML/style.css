@@ -1,4 +1,4 @@
-* {
+/* * {
     background:url(/images/hot.png);
     background-repeat: no-repeat; 
     background-size: cover;
@@ -6,7 +6,7 @@
     clear: both;
     color: white;
     font-family: 'Roboto', sans-serif;  
-}
+} */
 
 h1 {
     padding: 50px;
