@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.urlencoded({ extended: true}));
@@ -18,9 +18,9 @@ reservations = [
 ];
 
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'html', 'home.html')));
-app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'html', 'tables.html')));
-app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, 'html', 'reserve.html')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'home.html')));
+app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html')));
+app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, 'reserve.html')));
 
 app.get('/api/getreservations', (req, res) => res.json(reservations));
 app.post('/api/putreservation', (req, res) => {
